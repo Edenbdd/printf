@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_display.c"
-#include <stdarg.h>
-#include <stdio.h>
 #include "libft.h"
 
 int	ft_type(va_list arguments, const char mandatory)
@@ -35,7 +32,7 @@ int	ft_type(va_list arguments, const char mandatory)
 			ft_putchar_fd('%', 1);	
 	}
 	else if (mandatory == 'p')
-		len += print_pointer(va_arg(arguments, int *));
+		len += print_pointer(mandatory, va_arg(arguments, int));
 	return (len);
 }
 

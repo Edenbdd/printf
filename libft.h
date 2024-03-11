@@ -20,6 +20,8 @@
 #include <string.h>
 #include <bsd/string.h>
 #include <ctype.h>
+#include <stdarg.h>
+
 
 int		ft_isprint(int c);
 int		ft_isalpha(int c);
@@ -33,7 +35,6 @@ int		ft_atoi(const char *str);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strcmp(char *s1, char *s2);
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 size_t	ft_strlen(const char *s);
 
@@ -59,5 +60,14 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+
+int             print_nb (int arguments);
+int             hexa_len(unsigned int arguments);
+int             print_hexa(const char mandatory, unsigned int arguments);
+int             print_str(char *arguments);
+int             print_pointer(const char mandatory, int pointer);
+
+
+#include "ft_printf_display.c"
 
 #endif

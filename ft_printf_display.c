@@ -1,63 +1,9 @@
 
-#include <stdarg.h>
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write (fd, &c, 1);
-}
-
-void	ft_putnbr_fd(int n, int fd)
-{
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
-	if (n < 0)
-	{
-		write(fd, "-", 1);
-		n = -n;
-	}
-	if (n >= 0 && n <= 9)
-	{
-		ft_putchar_fd(n + 48, fd);
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd((n / 10), fd);
-		ft_putnbr_fd((n % 10), fd);
-	}
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-}
-
-int	ft_len(int nb)
-{
-	int	len;
-
-	len = 0;
-	if (nb == 0)
-                len++;
-        if (nb < 0)
-                nb = -nb;
-	while (nb > 0)
-        {
-                nb /= 10;
-                len++;
-        }
-        return (len);
-}
+#include "ft_putchar_fd.c"
+#include "ft_putnbr_fd.c"
+#include "ft_putstr_fd.c"
 
 int	print_nb (int arguments)
 {
@@ -65,7 +11,15 @@ int	print_nb (int arguments)
 
 	len = 0;
 	ft_putnbr_fd(arguments, 1);
-	len += ft_len(arguments);
+        if (arguments == 0)
+                len++;
+        if (arguments < 0)
+                arguments = -arguments;
+        while (arguments > 0)
+        {
+                arguments /= 10;
+                len++;
+        }
 	return (len);
 }
 
@@ -114,20 +68,8 @@ int	print_str(char *arguments)
 	return (len);
 }
 
-int print_pointer(int *pointer)
+int print_pointer(const char mandatory, int pointer)
 {
-	int count;
-
-	count = 0;
-	while (count < 14)
-	{
-		if (pointer[count] >= 0 && pointer[count] <= 9)
-      		{
-       		     ft_putnbr_fd(pointer[count], 1);
-	        }
-	        else
-	            ft_putchar_fd(pointer[count], 1);
-		count++;
-    	}
+	print_hexa(mandatory, pointer);
 	return (14);
 }
