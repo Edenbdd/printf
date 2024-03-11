@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aubertra <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aubertra <aubertra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/08 14:21:51 by aubertra          #+#    #+#             */
-/*   Updated: 2024/03/08 14:28:00 by aubertra         ###   ########.fr       */
+/*   Created: 2024/01/17 15:08:33 by aubertra          #+#    #+#             */
+/*   Updated: 2024/01/18 09:42:39 by aubertra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
-#include "ft_printf.c"
-#include "ft_printf2.c"
+#include "libft.h"
 
-int	ft_len(int nbr);
-void	print_hexa(int nb);
-void	print_hexa_caps(int nb);
-void	print_pointer(int *pointer);
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
+}
+
+/*
+int	main(void)
+{
+	ft_putstr_fd("je m'appelle Enzo", 1);
+	return (0);
+}
+*/
