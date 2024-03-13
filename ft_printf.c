@@ -6,7 +6,7 @@
 /*   By: aubertra <aubertra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 13:17:26 by aubertra          #+#    #+#             */
-/*   Updated: 2024/03/13 11:12:09 by aubertra         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:22:31 by aubertra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,8 @@ int	ft_printf(const char *mandatory, ...)
 /*
 int	main(void)
 {
-    	printf("%d\n", ft_printf("le chiffre préféré de maman est %X\n", 546546));
-    	printf("le chiffre préféré de maman est %X\n", 546546);
+    	printf("%d\n", ft_printf(0));
+    	printf(0);
     	return (0);
 }
 */
-

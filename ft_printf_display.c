@@ -6,7 +6,7 @@
 /*   By: aubertra <aubertra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 10:40:14 by aubertra          #+#    #+#             */
-/*   Updated: 2024/03/13 10:53:19 by aubertra         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:02:00 by aubertra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	print_unsigned_nb(unsigned int arguments)
 {
-	int	len;
+	int				len;
 	unsigned int	temp;
 
 	len = 0;
@@ -26,15 +26,13 @@ int	print_unsigned_nb(unsigned int arguments)
 		temp /= 10;
 		len++;
 	}
-        if (arguments <= 9)
-        {
-                ft_putchar_fd(arguments + 48, 1);
-        }
-        if (arguments > 9)
-        {
-                print_unsigned_nb(arguments / 10);
-                print_unsigned_nb(arguments % 10);
-        }
+	if (arguments <= 9)
+		ft_putchar_fd(arguments + 48, 1);
+	if (arguments > 9)
+	{
+		print_unsigned_nb(arguments / 10);
+		print_unsigned_nb(arguments % 10);
+	}
 	return (len);
 }
 
@@ -49,7 +47,7 @@ int	print_nb(int arguments)
 	if (arguments < 0)
 	{
 		if (arguments == -2147483648)
-			len+= 11;
+			len += 11;
 		else
 		{
 			arguments = -arguments;
@@ -82,7 +80,7 @@ int	hexa_len(unsigned int arguments)
 int	print_hexa(const char mandatory, unsigned int arguments)
 {
 	char	*list;
-	int	len;
+	int		len;
 
 	len = 0;
 	if (mandatory == 'x')
@@ -96,7 +94,7 @@ int	print_hexa(const char mandatory, unsigned int arguments)
 		print_hexa(mandatory, (arguments / 16));
 		print_hexa(mandatory, (arguments % 16));
 	}
-	len += hexa_len(arguments);	
+	len += hexa_len(arguments);
 	return (len);
 }
 
@@ -106,7 +104,7 @@ int	print_str(char *arguments)
 
 	len = 0;
 	if (arguments == NULL)
-		return(write(1, "(null)", 6));
+		return (write(1, "(null)", 6));
 	ft_putstr_fd(arguments, 1);
 	while (arguments[len])
 		len++;
