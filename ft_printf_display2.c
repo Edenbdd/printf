@@ -15,7 +15,16 @@
 int	print_pointer(const char mandatory, unsigned long long pointer)
 {
 	char	*list;
-
+	int	len;
+	unsigned long long	temp;
+	
+	temp = pointer;
+	len = 0;
+	while (temp > 0)
+	{
+		temp /= 16;
+		len++;
+	}
 	list = "0123456789abcdef";
 	if (pointer < 16)
 		ft_putchar_fd(list[pointer], 1);
@@ -24,7 +33,7 @@ int	print_pointer(const char mandatory, unsigned long long pointer)
 		print_pointer(mandatory, (pointer / 16));
 		print_pointer(mandatory, (pointer % 16));
 	}	
-	return (14);
+	return (len + 2);
 }
 
 int	print_char(const char mandatory, va_list arguments)

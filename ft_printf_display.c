@@ -15,18 +15,26 @@
 int	print_unsigned_nb(unsigned int arguments)
 {
 	int	len;
+	unsigned int	temp;
 
 	len = 0;
-	if (arguments < 0)
-		arguments = -arguments;
-	ft_putnbr_fd(arguments, 1);
+	temp = arguments;
 	if (arguments == 0)
 		len++;
-	while (arguments > 0)
+	while (temp > 0)
 	{
-		arguments /= 10;
+		temp /= 10;
 		len++;
 	}
+        if (arguments <= 9)
+        {
+                ft_putchar_fd(arguments + 48, 1);
+        }
+        if (arguments > 9)
+        {
+                print_unsigned_nb(arguments / 10);
+                print_unsigned_nb(arguments % 10);
+        }
 	return (len);
 }
 
@@ -39,7 +47,15 @@ int	print_nb(int arguments)
 	if (arguments == 0)
 		len++;
 	if (arguments < 0)
-		arguments = -arguments;
+	{
+		if (arguments == -2147483648)
+			len+= 11;
+		else
+		{
+			arguments = -arguments;
+			len++;
+		}
+	}
 	while (arguments > 0)
 	{
 		arguments /= 10;
@@ -53,6 +69,8 @@ int	hexa_len(unsigned int arguments)
 	int	len;
 
 	len = 0;
+	if (arguments == 0)
+		len++;
 	while (arguments > 0)
 	{
 		arguments /= 16;
@@ -87,6 +105,8 @@ int	print_str(char *arguments)
 	int	len;
 
 	len = 0;
+	if (arguments == NULL)
+		return(write(1, "(null)", 6));
 	ft_putstr_fd(arguments, 1);
 	while (arguments[len])
 		len++;
