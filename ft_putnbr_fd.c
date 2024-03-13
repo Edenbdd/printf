@@ -6,11 +6,11 @@
 /*   By: aubertra <aubertra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:08:40 by aubertra          #+#    #+#             */
-/*   Updated: 2024/02/03 16:20:23 by aubertra         ###   ########.fr       */
+/*   Updated: 2024/03/13 10:51:49 by aubertra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

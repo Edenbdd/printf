@@ -1,5 +1,0 @@
--Wall
--Wextra
--Werrors
--I
-./libft/
